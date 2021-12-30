@@ -37,6 +37,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
+  
   res.render('error', { title: 'Error Occured' });
 });
 
@@ -45,6 +46,7 @@ app.get('/', (req, res) => {
 });
 
 const PORT = 3001;
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
