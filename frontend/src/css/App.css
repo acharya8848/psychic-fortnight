@@ -1,3 +1,13 @@
 .App {
   text-align: center;
 }
+
+.particles {
+  background-color: rgb(5, 10, 54);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+ }
