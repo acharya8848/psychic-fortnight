@@ -15,10 +15,11 @@ function Login(){
     }
     return (
         <div>    
-        <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
+        <h2 className="words">Please sign in</h2>
+            <form onSubmit={handleSubmit} className="form-inline signin">
                 <input
                     type="text"
+                    className="form-control"
                     onChange={({ target }) =>     
                       setEmail(target.value)}
                     placeholder="Email"
@@ -26,12 +27,13 @@ function Login(){
                 <br />
                 <input
                     type="password"
+                    className="form-control"
                     onChange={({ target}) => 
                       setPassword(target.value)}
                     placeholder="Password"
                 />
                 <br />
-                <button type="submit">
+                <button type="submit" className="btn btn-primary active">
                     Sign in
                 </button>
             </form>
