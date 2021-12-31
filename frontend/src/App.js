@@ -5,7 +5,7 @@ import fire from './fire.js';
 import Login from './components/Login.jsx';
 import Profile from './components/Profile.jsx';
 import Home from './components/Home.jsx';
-import Particles from 'react-particles-js';
+import Particles from 'react-tsparticles';
 import "bootstrap/dist/css/bootstrap.css";
 
 
@@ -34,8 +34,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Psychic Fortnight</h1>
-
+      <h1 className="words">Psychic Fortnight</h1>
+    
       <Router>
         {!isLoggedIn
           ? (
@@ -48,16 +48,16 @@ function App() {
           ) 
           : (
             <> 
-              <span onClick={signOut}>
-                <a href="/">Sign out</a>
-              </span>
-              <span>
-                <a href="/profile/">Profile</a>
-              </span>
-              <span>
-                <a href="/">Home</a>
-              </span>
-              <h1><p>Welcome!</p></h1>
+              <button className="btn btn-success active" href="/">
+                <a className="clean" href="/">Home</a>
+              </button>
+              <button className="btn btn-info active" href="/profile/">
+                <a className="clean" href="/profile/">Profile</a>
+              </button>
+              <button onClick={signOut} className="btn btn-danger active">
+                <a className="clean" href="/">Sign out</a>
+              </button>      
+              <h2><p className="words">Welcome!</p></h2>
               <Routes>
                 <Route path="/profile/" element={<Profile/>}>
                 </Route>

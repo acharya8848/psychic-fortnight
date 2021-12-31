@@ -4,7 +4,7 @@ function Profile() {
 
     return(
         <div>
-            Welcome to your Profile page.
+            <h2 className="words">This is your Profile page.</h2>
         </div>
     )
 };

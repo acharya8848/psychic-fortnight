@@ -4,7 +4,7 @@ function Home() {
 
     return(
         <div>
-            This is the home page.
+            <br/><h2 className="words">This is the home page.</h2>
         </div>
     )
 }
