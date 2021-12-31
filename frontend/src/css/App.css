@@ -33,4 +33,12 @@
   border: 5px solid green;
   margin-left: 20%;
   margin-right: 20%;
+  align-items: center;
+ }
+
+ .profiletable {
+  width: 40%;
+  border: 5px solid aliceblue;
+  margin-right: 30%;
+  align-items: center;
  }
