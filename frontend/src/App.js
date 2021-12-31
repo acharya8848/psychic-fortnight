@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './css/App.css';
 import fire from './fire.js';
 import Login from './components/Login.jsx';
+import Profile from './components/Profile.jsx';
+import Home from './components/Home.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -38,6 +40,13 @@ function App() {
               <span onClick={signOut}>
                 <a href="/">Sign out</a>
               </span>
+              <Routes>
+                <Route path="/profile/" element={<Profile/>}>
+                  Profile
+                </Route>
+                <Route path="/" element={<Home/>}>
+                </Route>
+              </Routes>
             </>
           )}
       </Router>
