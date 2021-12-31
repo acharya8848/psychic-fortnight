@@ -1,5 +1,5 @@
 module.exports = {
     user          : "ADMIN",
-    password      : "QBGzH$vZ$XrVJnwq3tTp",
+    password      : "%G*Re^8g&usY",
     connectString : "data_high"
 };
