@@ -1,4 +1,19 @@
 {
-    "heroku-prebuild": "cd frontend && npm install && npm run build && cd .. && cd backend && npm install",
-    "start": "cd backend && node index.js && cd .. && cd frontend && npm start"
+  "name": "ApplicationWrapper",
+  "version": "1.0.0",
+  "description": "Wrapper around the server and frontend",
+  "main": "wrapper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acharya8848/psychic-fortnight.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acharya8848/psychic-fortnight/issues"
+  },
+  "homepage": "https://github.com/acharya8848/psychic-fortnight#readme"
 }
