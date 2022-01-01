@@ -1,5 +1,5 @@
 {
-  "name": "ApplicationWrapper",
+  "name": "applicationwrapper",
   "version": "1.0.0",
   "description": "Wrapper around the server and frontend",
   "main": "wrapper.js",
