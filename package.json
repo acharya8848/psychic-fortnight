@@ -1,4 +1,4 @@
 {
     "heroku-prebuild": "cd frontend && npm install && npm run build && cd .. && cd backend && npm install",
-    "start": "cd backend && npm start"
+    "start": "cd backend && npm start && cd .. && cd frontend && npm start"
 }
