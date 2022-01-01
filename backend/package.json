@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "build": "cd frontend && npm install && npm run build"
+    "build": "cd .. && cd frontend && npm install && npm run build"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
