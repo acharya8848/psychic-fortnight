@@ -37,15 +37,16 @@ async function run() {
     //                             execute immediate 'drop table nodetab';
     //                             exception when others then if sqlcode <> -942 then raise; end if;
     //                           end;`);
-    let exists = connection.tableExists('nodetab');
 
-    if (exists) {
+    // Check if the table exists
+    let exists = await connection.tableExists('nodetab');
+
+    if (exists) {// If the table exists, print a line on the console and then move on to query data from the table
       console.log('Table exists');
-    } else {
+    } else {// If not, then create a table and put some data in it and then move on to query data from the table
       await connection.execute(`create table nodetab (firstName varchar(20), lastName varchar2(20), school varchar2(20), major varchar(20))`);
 
       // Insert some rows
-  
       const sql = `INSERT INTO nodetab VALUES (:1, :2, :3, :4)`;
   
       const binds =
@@ -60,7 +61,6 @@ async function run() {
     }
 
     // Now query the rows back
-
     const result = await connection.execute(`SELECT * FROM nodetab`);
 
     console.dir(result.rows, { depth: null });
