@@ -1,7 +1,21 @@
+'use strict';
+
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv').config();
+const fs = require('fs');
+const oracledb = require('oracledb');
 const dbConfig = require('./dbconfig.js');
+
+let libPath;
+if (process.platform === 'win32') {           // Windows
+  libPath = 'C:\\oracle\\instantclient_21_3';
+} else if (process.platform === 'darwin') {   // macOS
+  libPath = process.env.HOME + '/Downloads/instantclient_19_8';
+}
+if (libPath && fs.existsSync(libPath)) {
+  oracledb.initOracleClient({ libDir: libPath });
+}
 
 const app = express();
 
@@ -19,10 +33,6 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
-
-const oracledb = require('oracledb');
-
-oracledb.initOracleClient({ libDir: 'C:\\oracle\\instantclient_19_11' });
 
 async function createTable(connection, table){
   await connection.execute(`create table `+table);
@@ -56,12 +66,12 @@ async function run() {
     //                           end;`);
 
     // Check if the table exists
-    let exists = await connection.tableExists('nodetab');
+    let exists = await connection.execute(`select table_name from user_tables where table_name = 'nodetab'`);
 
-    if (exists) {// If the table exists, print a line on the console and then move on to query data from the table
+    if (exists.rows.length != 0) {// If the table exists, print a line on the console and then move on to query data from the table
       console.log('Table exists');
     } else {// If not, then create a table and put some data in it and then move on to query data from the table
-      await connection.execute(`create table nodetab (firstName varchar(20), lastName varchar2(20), school varchar2(20), major varchar(20))`);
+      await connection.execute(`create table nodetab (firstName varchar(20), lastName varchar2(20), school varchar2(20), major varchar(30))`);
 
       // Insert some rows
       const sql = `INSERT INTO nodetab VALUES (:1, :2, :3, :4)`;
@@ -80,7 +90,9 @@ async function run() {
     // Now query the rows back
     const result = await connection.execute(`SELECT * FROM nodetab`);
 
-    console.dir(result.rows, { depth: null });
+    console.log(result.rows, { depth: null });
+
+    return result.rows;
 
   } catch (err) {
     console.error(err);
@@ -95,7 +107,7 @@ async function run() {
   }
 }
 
-run();
+let data = run();
 
 app.get("/api", (req, res) => {
   res.json({ message: "*example JSON data from the backend*", name: "ryan", school: "UVA", major: "CS" });
