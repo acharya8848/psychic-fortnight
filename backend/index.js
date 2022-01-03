@@ -24,6 +24,23 @@ const oracledb = require('oracledb');
 
 oracledb.initOracleClient({ libDir: 'C:\\oracle\\instantclient_19_11' });
 
+async function createTable(connection, table){
+  await connection.execute(`create table `+table);
+}
+
+async function addColumn(connection, table, columns){
+  await connection.execute(`INSERT INTO `+table+` ( `+columns+` );`);
+}
+
+// These functions are unncessary, only for SQL reference
+async function addRowsSingleColumn(connection, table, column, rows){
+  await connection.execute(`INSERT INTO `+table+` ( `+column+` ) VALUES ( `+rows+` );`);
+}
+
+async function addRowsEntireTable(connection, table, rows){
+  await connection.execute(`INSERT INTO `+table+` VALUES ( `+rows+` );`);
+}
+
 async function run() {
 
   let connection;
