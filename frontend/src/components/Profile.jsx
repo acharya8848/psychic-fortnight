@@ -18,19 +18,13 @@ function Profile() {
                 "Loading profile data..." : 
                 <>
                 <h2 className="clean dataexample">{profileData.message}</h2>
-                <table className="table clean profiletable">
+                <table id="dataTable" className="table clean profiletable">
                     <tbody className="clean">
                         <tr>
-                            <td>Name</td>
-                            <td>{profileData.name}</td>
-                        </tr>
-                        <tr>
-                            <td>School</td>
-                            <td>{profileData.school}</td>
-                        </tr>
-                        <tr>
-                            <td>Major</td>
-                            <td>{profileData.major}</td>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>School</th>
+                            <th>Major</th>
                         </tr>
                     </tbody>
                 </table>

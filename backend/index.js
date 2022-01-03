@@ -90,8 +90,6 @@ async function run() {
     // Now query the rows back
     const result = await connection.execute(`SELECT * FROM nodetab`);
 
-    console.log(result.rows, { depth: null });
-
     return result.rows;
 
   } catch (err) {
@@ -108,7 +106,15 @@ async function run() {
 }
 
 let data = run();
-
+/* This is what the string in 'data' will look like:
+[
+  [ 'Ryan', 'Grayson', 'UVA', 'Computer Science' ],
+  [ 'Anubhav', 'Acharya', 'UVA', 'Computer Engineering' ],
+  [ 'Jhon', 'Doe', 'VT', 'Electrical Engineering' ],
+  [ 'Jane', 'Doe', 'VT', 'Data Science' ]
+]
+I don't know how to put this into the table in HTML, help!
+*/
 app.get("/api", (req, res) => {
-  res.json({ message: "*example JSON data from the backend*", name: "ryan", school: "UVA", major: "CS" });
+  res.json({"table": data});
 });
