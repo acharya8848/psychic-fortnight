@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('./frontend/build'));
+app.use(express.static(path.resolve('frontend/build')));
 
 const PORT = process.env.PORT || 3001;
 
@@ -16,7 +16,7 @@ app.get("/api", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve('./frontend/build', 'index.html'));
+  res.sendFile(path.resolve('frontend/build', 'index.html'));
 });
 
 app.listen(PORT, () => {
