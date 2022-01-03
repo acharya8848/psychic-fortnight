@@ -28,11 +28,11 @@ function Profile() {
                         </tr>
                         {profileData.table.map((person) => (
                             <tr>
-                            <th>{person[0]}</th>
-                            <th>{person[1]}</th>
-                            <th>{person[2]}</th>
-                            <th>{person[3]}</th>
-                        </tr>
+                                <th>{person[0]}</th>
+                                <th>{person[1]}</th>
+                                <th>{person[2]}</th>
+                                <th>{person[3]}</th>
+                            </tr>
                         ))}
                     </tbody>
                 </table>
