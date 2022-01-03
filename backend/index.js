@@ -24,22 +24,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve('frontend/build')));
 
-const PORT = process.env.PORT || 3001;
-
-app.get("/", (req, res) => {
-  res.send("Baseline server working");
-});
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve('frontend/build', 'index.html'));
-});
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
-
-module.exports = app;
-
 async function createTable(connection, table){
   await connection.execute(`create table `+table);
 }
@@ -121,6 +105,19 @@ let data = run();
 ]
 I don't know how to put this into the table in HTML, help!
 */
+
 app.get("/api", (req, res) => {
   res.json({"table": data});
 });
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve('frontend/build', 'index.html'));
+});
+
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+module.exports = app;
