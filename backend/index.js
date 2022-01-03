@@ -95,12 +95,8 @@ async function run() {
   }
 }
 
-let data = [
-  [ 'Ryan', 'Grayson', 'UVA', 'Computer Science' ],
-  [ 'Anubhav', 'Acharya', 'UVA', 'Computer Engineering' ],
-  [ 'Jhon', 'Doe', 'VT', 'Electrical Engineering' ],
-  [ 'Jane', 'Doe', 'VT', 'Data Science' ]
-];
+let data = run();
+
 /* This is what the string in 'data' will look like:
 [
   [ 'Ryan', 'Grayson', 'UVA', 'Computer Science' ],
