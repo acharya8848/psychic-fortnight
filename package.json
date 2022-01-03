@@ -1,0 +1,22 @@
+{
+  "name": "psychic-fortnight",
+  "version": "1.0.0",
+  "description": "Psychic Fortnight baby",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/index.js",
+    "build": "cd frontend && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acharya8848/psychic-fortnight.git"
+  },
+  "keywords": [],
+  "author": "Ryan Grayson, Anubhav Acharya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acharya8848/psychic-fortnight/issues"
+  },
+  "homepage": "https://psychic-fortnight.herokuapp.com"
+}
