@@ -22,7 +22,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.resolve('frontend/build')));
+app.use(express.static(path.resolve(__dirname, '../frontend/build')));
 
 async function createTable(connection, table){
   await connection.execute(`create table `+table);
@@ -95,7 +95,12 @@ async function run() {
   }
 }
 
-let data = run();
+let data = [
+  [ 'Ryan', 'Grayson', 'UVA', 'Computer Science' ],
+  [ 'Anubhav', 'Acharya', 'UVA', 'Computer Engineering' ],
+  [ 'Jhon', 'Doe', 'VT', 'Electrical Engineering' ],
+  [ 'Jane', 'Doe', 'VT', 'Data Science' ]
+];
 /* This is what the string in 'data' will look like:
 [
   [ 'Ryan', 'Grayson', 'UVA', 'Computer Science' ],
@@ -111,7 +116,7 @@ app.get("/api", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve('frontend/build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
 });
 
 const PORT = process.env.PORT || 3001;

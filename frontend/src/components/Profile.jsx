@@ -10,8 +10,6 @@ function Profile() {
           .then((profileData) => setProfileData(profileData));
       }, []);
 
-      console.table(profileData.table);
-
     return(
         <div>
             <h2 className="words">This is your Profile page.</h2><br/>
@@ -19,7 +17,7 @@ function Profile() {
             {!profileData ? 
                 "Loading profile data..." : 
                 <>
-                <h2 className="clean dataexample">{profileData.message}</h2>
+                <h2 className="clean dataexample">Example data from oracle db</h2>
                 <table id="dataTable" className="table clean profiletable">
                     <tbody className="clean">
                         <tr>
@@ -28,6 +26,14 @@ function Profile() {
                             <th>School</th>
                             <th>Major</th>
                         </tr>
+                        {profileData.table.map((person) => (
+                            <tr>
+                            <th>{person[0]}</th>
+                            <th>{person[1]}</th>
+                            <th>{person[2]}</th>
+                            <th>{person[3]}</th>
+                        </tr>
+                        ))}
                     </tbody>
                 </table>
                 </>
