@@ -6,6 +6,7 @@ const dotenv = require('dotenv').config();
 const fs = require('fs');
 const oracledb = require('oracledb');
 const dbConfig = require('./dbconfig.js');
+const path = require('path');
 
 let libPath;
 if (process.platform === 'win32') {           // Windows
@@ -21,11 +22,16 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.resolve('frontend/build')));
 
 const PORT = process.env.PORT || 3001;
 
 app.get("/", (req, res) => {
   res.send("Baseline server working");
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve('frontend/build', 'index.html'));
 });
 
 app.listen(PORT, () => {

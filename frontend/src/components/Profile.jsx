@@ -10,6 +10,8 @@ function Profile() {
           .then((profileData) => setProfileData(profileData));
       }, []);
 
+      console.table(profileData.table);
+
     return(
         <div>
             <h2 className="words">This is your Profile page.</h2><br/>
