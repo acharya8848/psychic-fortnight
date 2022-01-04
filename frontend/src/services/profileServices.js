@@ -12,7 +12,6 @@ export const createNewProfile = async (fname, lname, email, pword) => {
             fname,
             lname,
             email,
-            pword
           };
           try {
             const res = await axios.post(url, payload);
