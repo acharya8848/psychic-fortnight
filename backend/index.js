@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '../frontend/build')));
 
 app.get("/api", (req, res) => {
-  res.json({"table": data});
+  res.json({"firstname": "ryan", "lastname": "grayson", "email": "ryangrayson20@gmail.com"});
 });
 
 app.get("*", (req, res) => {

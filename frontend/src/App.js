@@ -60,7 +60,6 @@ function App() {
               <button onClick={signOut} className="btn btn-danger active">
                 <a className="clean" href="/">Sign out</a>
               </button>      
-              <h2><p className="words">Welcome!</p></h2>
               <Routes>
                 <Route path="/profile/" element={<Profile/>}>
                 </Route>

@@ -12,29 +12,25 @@ function Profile() {
 
     return(
         <div>
-            <h2 className="words">This is your Profile page.</h2><br/>
             
             {!profileData ? 
                 "Loading profile data..." : 
                 <>
-                <h2 className="clean dataexample">Example data from oracle db</h2>
+                <h2 className="words">Welcome, {profileData.firstname}</h2><br/>
+                <h2 className="clean dataexample">Personal Info</h2>
                 <table id="dataTable" className="table clean profiletable">
                     <tbody className="clean">
                         <tr>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>School</th>
-                            <th>Major</th>
+                            <th>Email</th>
                         </tr>
-                        {profileData.table.map((person) => (
-                            <tr>
-                                <th>{person[0]}</th>
-                                <th>{person[1]}</th>
-                                <th>{person[2]}</th>
-                                <th>{person[3]}</th>
-                            </tr>
-                        ))}
-                    </tbody>
+                        <tr>
+                            <th>{profileData.firstname}</th>
+                            <th>{profileData.lastname}</th>
+                            <th>{profileData.email}</th>
+                        </tr>
+                </tbody>
                 </table>
                 </>
             }

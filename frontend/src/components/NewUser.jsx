@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import fire from './../fire.js';
+import { Link } from 'react-router-dom';
+import { createNewProfile } from '../services/profileServices.js';
+import { useNavigate } from 'react-router-dom';
 
 function NewUser() {
     const [firstName, setFirstName] = useState();
@@ -7,8 +9,18 @@ function NewUser() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
+    const navigate = useNavigate();
+
     const createNewUser = (e) => {
         e.preventDefault();
+        if (firstName && lastName && email && password) {
+            alert("profile successfully created");
+            navigate("/");
+            return createNewProfile(firstName, lastName, email, password);
+        }
+        else {
+            alert("you must fill out all fields");
+        }
     }
 
     return(
@@ -25,7 +37,7 @@ function NewUser() {
                 />
                 <br />
                 <input
-                    type="password"
+                    type="text"
                     className="form-control"
                     onChange={({ target}) => 
                       setLastName(target.value)}
@@ -49,10 +61,15 @@ function NewUser() {
                 />
                 <br />
                 <button type="submit" className="btn btn-primary active">
-                    Create Profile
+                        Create Profile
                 </button>
             </form>
-            
+            <br/>
+            <button className="btn btn-danger">
+                <Link className="clean" to="/">
+                    Back
+                </Link>
+            </button>
         </div>
     );
 }
