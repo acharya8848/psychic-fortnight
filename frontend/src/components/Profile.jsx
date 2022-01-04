@@ -12,27 +12,25 @@ function Profile() {
 
     return(
         <div>
-            <h2 className="words">This is your Profile page.</h2><br/>
             
             {!profileData ? 
                 "Loading profile data..." : 
                 <>
-                <h2 className="clean dataexample">{profileData.message}</h2>
-                <table className="table clean profiletable">
+                <h2 className="words">Welcome, {profileData.firstname}</h2><br/>
+                <h2 className="clean dataexample">Personal Info</h2>
+                <table id="dataTable" className="table clean profiletable">
                     <tbody className="clean">
                         <tr>
-                            <td>Name</td>
-                            <td>{profileData.name}</td>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
                         </tr>
                         <tr>
-                            <td>School</td>
-                            <td>{profileData.school}</td>
+                            <th>{profileData.firstname}</th>
+                            <th>{profileData.lastname}</th>
+                            <th>{profileData.email}</th>
                         </tr>
-                        <tr>
-                            <td>Major</td>
-                            <td>{profileData.major}</td>
-                        </tr>
-                    </tbody>
+                </tbody>
                 </table>
                 </>
             }

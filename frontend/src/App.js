@@ -5,6 +5,7 @@ import fire from './fire.js';
 import Login from './components/Login.jsx';
 import Profile from './components/Profile.jsx';
 import Home from './components/Home.jsx';
+import NewUser from './components/NewUser.jsx';
 import Particles from 'react-tsparticles';
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -43,6 +44,8 @@ function App() {
               <Routes>
                 <Route path="/" element={<Login/>}>
                 </Route>
+                <Route path="/new-user/" element={<NewUser/>}>
+                </Route>
               </Routes>
             </>
           ) 
@@ -57,7 +60,6 @@ function App() {
               <button onClick={signOut} className="btn btn-danger active">
                 <a className="clean" href="/">Sign out</a>
               </button>      
-              <h2><p className="words">Welcome!</p></h2>
               <Routes>
                 <Route path="/profile/" element={<Profile/>}>
                 </Route>
