@@ -1,5 +1,5 @@
 const profileRouter = require('express').Router();
-const Profile = require('../models/profile');
+const Profile = require('../backend/models/profile');
 
 // phonesRouter.get('/', async (req, res) => {
 //     const auth = req.currentUser;
