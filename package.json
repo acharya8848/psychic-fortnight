@@ -6,6 +6,9 @@
     "build": "cd frontend && npm i && npm run build",
     "start": "node index.js"
   },
+  "engines": {
+    "node": "16.13.1"
+  },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
@@ -17,20 +20,9 @@
     "mongoose": "^6.1.4",
     "morgan": "~1.9.1"
   },
-  "engines": {
-    "node": "16.13.1"
-  },
-  "description": "Psychic Fortnight baby",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/acharya8848/psychic-fortnight.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/acharya8848/psychic-fortnight/issues"
-  },
-  "homepage": "https://github.com/acharya8848/psychic-fortnight#readme"
+  "description": ""
 }
