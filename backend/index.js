@@ -20,10 +20,18 @@ mongoose.connect(
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '../frontend/build')));
-app.use('/api', profileRouter);
+//app.use('/api', profileRouter);
+
+app.get("/api", (req, res) => {
+  res.json({"example": "ryan"});
+});
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
+// });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
+  res.send('backend working');
 });
 
 const PORT = process.env.PORT || 3001;
